@@ -17,7 +17,7 @@ if [ -z "$F" ]; then
   echo "No new files"
 else
   N=$(cat /tmp/newfiles.txt | wc -l)
-  MSG1="$(cat /tmp/newfiles.txt | awk -F'vibor2021_partii_2/' '{print $2}' | sed 's/\//\\/g')"
+  MSG1="$(cat /tmp/newfiles.txt | awk -F"$SRC/" '{print $2}' | sed 's/\//\\/g')"
   MSG2="Выборы 2021: $N новых файлов в папке $(echo "\\pegas33\D\$SRC\")"
   for i in ${RCP[@]}; do
     echo $MSG1 | sendxmpp -f /root/script/.sendxmpprc $i
