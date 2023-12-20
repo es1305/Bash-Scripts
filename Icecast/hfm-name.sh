@@ -22,7 +22,7 @@ for i in {1..29}; do
     ARTIST=$(cat /mnt/rds/cur_playing.xml |
         /usr/bin/awk 'BEGIN{FS="<.?ARTIST>"}{print $2}')
 
-    if [[ -z "$NAME" && -z "$ARTIST" ]]; then
+    if [[ -z "$NAME" || -z "$ARTIST" ]]; then
         SONG=Радио+«Heart+FM»+Барнаул+-+Тел.:+\(3852\)+55-10-59,+e-mail:+radio@heartfm.ru
     else
         SONG=$(echo "$ARTIST - $NAME" | sed "s/&amp;//g" | sed "s/  */ /g" | sed "s/ /+/g")
