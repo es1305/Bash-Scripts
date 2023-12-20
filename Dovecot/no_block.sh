@@ -24,6 +24,7 @@ if [[ -e $input ]]; then
     echo
     echo "${GREEN}Found ${RED}$i ${GREEN}spammer's addresses in $input"
     echo "Please wait for remove...${NORMAL}"
+    :>$input
   fi
 
   cat $input | grep "@" | sort | uniq | while read addr; do
